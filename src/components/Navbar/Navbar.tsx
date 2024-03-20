@@ -3,6 +3,7 @@ import searchIcon from "../../assets/icons/search.svg";
 import Image from "next/image";
 import { Menu } from "@/types/navbar.type";
 import NavMenu from "../NavMenu";
+import ExpandableSearch from "../ExpandableSearch";
 
 interface NavbarProps {
   menus: Menu[];
@@ -26,8 +27,8 @@ export default function Navbar({ menus, className = "" }: NavbarProps) {
           ))}
         </ul>
       </nav>
-      <div className="ml-auto relative h-6 w-6">
-        <Image alt="Search" src={searchIcon} fill />
+      <div className="ml-auto">
+        <ExpandableSearch />
       </div>
     </header>
   );

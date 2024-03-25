@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import searchIcon from "../../assets/icons/search.svg";
 
 interface PopularArticleProps {
   id: string;
@@ -32,7 +31,7 @@ export default function PopularArticle({
           src={cover}
           height={96}
           width={96}
-          className="group-hover:scale-125 transition-transform object-cover"
+          className="group-hover:scale-105 transition-transform object-cover object-top"
         />
       </div>
     </Link>

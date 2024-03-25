@@ -47,7 +47,12 @@ export default async function Home() {
             title={article.title}
             description={article.abstract}
             section={article.section}
-            cover={article.media?.[0]?.["media-metadata"]?.[0]?.url}
+            cover={
+              article.media?.[0]?.["media-metadata"]?.find(
+                (meta: { format: string }) =>
+                  meta.format === "mediumThreeByTwo440"
+              )?.url
+            }
             className="max-sm:w-full max-lg:w-6/12"
           />
         ))}

@@ -25,7 +25,7 @@ export default function Article({
           alt="cover"
           src={cover}
           fill
-          className="group-hover:scale-125 transition-transform object-cover"
+          className="group-hover:scale-105 transition-transform object-cover object-top"
         />
       </div>
       <div className="py-4">

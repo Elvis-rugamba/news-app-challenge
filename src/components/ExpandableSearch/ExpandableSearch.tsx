@@ -1,15 +1,30 @@
 "use client";
 import Image from "next/image";
 import searchIcon from "../../assets/icons/search.svg";
-import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-interface ExpandableSearchProps {}
+interface ExpandableSearchProps {
+  expanded?: boolean;
+  onSearch?: () => void;
+  className?: string;
+}
 
-export default function ExpandableSearch({}: ExpandableSearchProps) {
+export default function ExpandableSearch({
+  expanded = false,
+  onSearch,
+  className = "",
+}: ExpandableSearchProps) {
   const [query, setQuery] = useState("");
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(expanded);
   const router = useRouter();
+
+  useEffect(() => {
+    setIsExpanded(expanded);
+    return () => {
+      setIsExpanded(expanded);
+    };
+  }, [expanded]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
@@ -26,7 +41,11 @@ export default function ExpandableSearch({}: ExpandableSearchProps) {
       router.push(`/search/${query}`);
     }
 
-    setIsExpanded(!isExpanded);
+    if (!expanded) {
+      setIsExpanded(!isExpanded);
+    }
+
+    onSearch && onSearch();
   };
 
   return (
@@ -36,7 +55,7 @@ export default function ExpandableSearch({}: ExpandableSearchProps) {
           isExpanded
             ? "w-52 opacity-100 translate-x-0"
             : "w-0 opacity-0 translate-x-full"
-        }`}
+        } ${className}`}
         type="text"
         placeholder="Search..."
         onChange={handleChange}

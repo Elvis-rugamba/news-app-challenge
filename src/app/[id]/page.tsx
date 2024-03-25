@@ -19,10 +19,10 @@ export default async function Page({ params }: { params: { id: string } }) {
   console.log({ article });
 
   return (
-    <div className="container flex flex-col items-center w-1/2 mx-auto mt-6">
+    <div className="container flex flex-col items-center w-1/2 max-sm:w-full max-lg:w-full mx-auto mt-6 max-sm:px-4 max-lg:px-24">
       {article ? (
         <>
-          <div className="relative w-full h-[500px] overflow-hidden">
+          <div className="relative w-full h-[500px] max-sm:h-96 overflow-hidden">
             <Image
               alt="Cover"
               src={`https://static01.nyt.com/${article.multimedia?.[0]?.url}`}

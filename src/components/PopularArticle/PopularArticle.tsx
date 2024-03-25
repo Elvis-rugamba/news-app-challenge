@@ -20,7 +20,7 @@ export default function PopularArticle({
   return (
     <Link
       href={`/${title}`}
-      className={`w-full group flex items-center py-4 space-x-4 border-b border-black/20 ${className}`}
+      className={`w-full group flex items-center py-4 max-sm:px-0 max-lg:px-2 space-x-4 border-b border-black/20 ${className}`}
     >
       <div className="flex-1">
         <p className="font-medium mb-2">{title}</p>

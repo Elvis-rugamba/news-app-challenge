@@ -15,7 +15,7 @@ export default async function Page({ params }: { params: { query: string } }) {
   );
 
   return (
-    <section className="container mt-6 px-24 mx-auto flex flex-wrap w-full">
+    <section className="container mt-6 px-24 max-sm:px-4 mx-auto flex flex-wrap justify-between">
       {articles?.response?.docs?.map((article) => (
         <Article
           id={article?.uri?.split("/")[article.uri?.split("/").length - 1]}
@@ -24,6 +24,7 @@ export default async function Page({ params }: { params: { query: string } }) {
           description={article?.lead_paragraph}
           section={article?.section_name}
           cover={`https://static01.nyt.com/${article.multimedia?.[0]?.url}`}
+          className="max-sm:w-full max-lg:w-6/12"
         />
       ))}
     </section>

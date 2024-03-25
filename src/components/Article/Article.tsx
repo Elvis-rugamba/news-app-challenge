@@ -28,7 +28,7 @@ export default function Article({
           className="group-hover:scale-125 transition-transform object-cover"
         />
       </div>
-      <div className="content py-4">
+      <div className="py-4">
         <span className="section text-sm capitalize">{section}</span>
         <h6 className="text-lg font-bold truncate line-clamp-2 overflow-hidden text-wrap">
           {title}

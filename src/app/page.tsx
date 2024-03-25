@@ -12,14 +12,6 @@ export default async function Home() {
     "/mostpopular/v2/viewed/1.json"
   );
 
-  console.log({
-    mostPopular: mostPopular?.results?.[0]?.media?.[0]?.[
-      "media-metadata"
-    ]?.find(
-      (meta: { format: string }) => meta.format === "mediumThreeByTwo440"
-    ),
-  });
-
   return (
     <>
       <section className="container mx-auto mt-6 px-24 max-sm:px-4 flex max-sm:flex-wrap max-lg:flex-wrap space-x-6 max-sm:space-x-0 max-lg:space-x-0">
